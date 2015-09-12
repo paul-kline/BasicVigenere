@@ -18,4 +18,5 @@ executable IntroToCrypto
      main-is: Main.hs             
      other-modules:  BasicVigenere
      hs-source-dirs: ./
-  build-depends:       base, containers, hashmap, hashable
+  build-depends:       base, containers, hashmap, hashable, criterion	
+  ghc-options: -O2	

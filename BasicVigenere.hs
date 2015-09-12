@@ -105,8 +105,10 @@ crackOpt1 c keylen wordlen = do
     let key1 = take keylen $ repeat 'A'
     let cword = take wordlen c 
     keys <- crackOpt1_handler key1 cword hashTree []
-    return $ map (decrypt_ c) keys 
-
+    
+    let res =  map (decrypt_ c) keys 
+    print res 
+    return res
 crackOpt1_handler :: Key -> CypherText -> HashTree Char Char ->[Key] ->IO [Key] 
 crackOpt1_handler curKey c d goodkeys=do
   --putStrLn $ "curKey: " ++ curKey
@@ -118,7 +120,7 @@ crackOpt1_handler curKey c d goodkeys=do
         --putStrLn $ "(newKey,I): " ++ (show (newKey,i)) 
         crackOpt1_handler newKey c d goodkeys
     Right _ -> do 
-      putStrLn $ "SUCCESSFUL DECRYPTION WITH: " ++ curKey 
+      --putStrLn $ "SUCCESSFUL DECRYPTION WITH: " ++ curKey 
       --_ <- getLine
       case incKeyAt ((length curKey) -1) curKey of 
         Nothing     -> return $ goodkeys ++ [curKey]
