@@ -1,0 +1,46 @@
+Decrypt the following encrypted quotation.
+fqjcb rwjwj vnjax bnkhj whxcq nawjv
+nfxdu mbvnu ujbbf nnc
+2. Decrypt the following encrypted quotation.
+oczmz vmzor jocdi bnojv dhvod igdaz
+admno ojbzo rcvot jprvi oviyv aozmo
+cvooj ziejt dojig toczr dnzno jahvi
+fdiyv xcdzq zoczn zxjiy
+3. Decrypt the following encrypted quotation.
+pbegu uymiq icuuf guuyi qguuy qcuiv
+fiqgu uyqcu qbeme vp
+4. Decrypt the following encrypted quotation.
+jrgdg idxgq anngz gtgtt sitgj ranmn
+oeddi omnwj rajvk sexjm dxkmn wjrgm
+ttgdt gognj ajmzg ovgki nlaqg tjamn
+xmsmj jrgko jtgnw jrgnj rgvat tmgta
+wamno jjrgw izgtn sgnji babgu
+5. Decrypt the following encrypted quotation.
+ejitp spawa qleji taiul rtwll rflrl
+laoat wsqqj atgac kthls iraoa twlpl
+qjatw jufrh lhuts qataq itats aittk
+stqfj cae
+o
+
+
+map (\k-> (k,encrypt str2 k)) (map (:"") ['A'..'Z'])
+
+
+fqjcbrwjwjvnjaxbnkhjwhxcqnawjvnfxdumbvnuujbbfnnc
+("R","WHATSINANAMEAROSEBYANYOTHERNAMEWOULDSMELLASSWEET")
+2.
+oczmzvmzorjocdibnojvdhvodigdazadmnoojbzorcvotjprvioviyvaozmocvoojziejtdojigtoczrdnznojahvifdiyvxcdzqzocznzxjiy
+"F","THEREARETWOTHINGSTOAIMATINLIFEFIRSTTOGETWHATYOUWANTANDAFTERTHATTOENJOYITONLYTHEWISESTOFMANKINDACHIEVETHESECOND")
+3.
+pbeguuymiqicuufguuyiqguuyqcuivfiqguuyqcuqbemevp
+--NOT A SHIFT CIPHER 
+4.
+jrgdgidxgqanngzgtgttsitgjranmnoeddiomnwjrajvksexjmdxkmnwjrgmttgdtgognjajmzgovgkinlaqgtjamnxmsmjjrgkojtgnwjrgnjrgvattmgtawamnojjrgwizgtnsgnjibabgu
+THEIEAIXEQBNNEZESESSRASETHBNMNOJIIAOMNWTHBTVKRJXTMIXKMNWTHEMSSEISEOENTBTMZEOVEKANLBQESTBMNXMRMTTHEKOTSENWTHENTHEVBSSMESBWBMNOTTHEWAZESNRENTADBDEU
+THEIEJIXEQANNEZESESSRJSETHANMNOFIIJOMNWTHATVKRFXTMIXKMNWTHEMSSEISEOENTATMZEOVEKJNLAQESTAMNXMRMTTHEKOTSENWTHENTHEVASSMESAWAMNOTTHEWJZESNRENTJGAGEU
+THEDEADXEQJNNEZESESSRASETHJNMNOBDDAOMNWTHJTVKRBXTMDXKMNWTHEMSSEDSEOENTJTMZEOVEKANLJQESTJMNXMRMTTHEKOTSENWTHENTHEVJSSMESJWJMNOTTHEWAZESNRENTAFJFEU
+--NOT A SHIFT CIPHER 
+5.
+ejitpspawaqlejitaiulrtwllrflrllaoatwsqqjatgackthlsiraoatwlplqjatwjufrhlhutsqataqitatsaittkstqfjcae
+
+

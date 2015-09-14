@@ -53,7 +53,13 @@ dicList i = do
   handle <- openFile "dict.txt" ReadMode
   contents <- hGetContents handle 
   return $ filter (\x -> (length x) == i) $ lines contents
-{-
+
+dicList2 :: Int -> IO [String] 
+dicList2 i = do
+  handle <- openFile "dict2.txt" ReadMode
+  contents <- hGetContents handle 
+  return $ filter (\x -> (length x) == i) $ lines contents  
+  {-
 dicHashSet :: Int -> IO (HS.HashSet String)
 dicHashSet i = do 
   ls <- dicList i 
@@ -78,6 +84,11 @@ dicHashTree i = do
   ls <- dicList i 
   return $ createHashTree ls 
 
+dicHashTree2 :: Int -> IO (HashTree Char Char) 
+dicHashTree2 i = do 
+  ls <- dicList2 i 
+  return $ createHashTree ls
+  
 createHashTree :: [String] -> HashTree Char Char 
 createHashTree  [[]] = HashLeaf 
 createHashTree ls = let headtails = map (\w -> (head w, tail w)) ls 
