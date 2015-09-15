@@ -1,4 +1,6 @@
-readme
+Indroduction to Cryptography
+Homework 1 
+Paul Kline
 
 
 The first thing I tested for when trying to decode problems 1-5 was if any were encrypted simply with a shift cipher. To save time I did not do this check by hand, but rather used some code from our first mini project--namely my encrypt function. The line of Haskell code to 'decrypt' was:
