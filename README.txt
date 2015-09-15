@@ -65,7 +65,7 @@ This is one of my actual lists used in the third iteration of my helper program.
 However after trying several different mappings in this way and tens of thousands of decryptions to scroll through, I had no further breakthroughs. Lines looked more like English though, which I thought was pretty good start. Below are a couple interesting decryptions. Especially interesting parts are upperlined:
 ___                   ___              ____             ____                                                          ___________ 
 THEBEIBXEQANNEZESESSRISETHANMNODBBIOMNWTHATVKRDXTMBXKMNWTHEMSSEBSEOENTATMZEOVEKINLAQESTAMNXMRMTTHEKOTSENWTHENTHEVASSMESAWAMNOTTHEWIZESNRENTIGAGEU
-__________                                                                                               ________ 
+___________                                                                                               ________ 
 THEDEADMENIOOEzEtEttsAtETHIOmOoeDDAomOwTHITRkseMTmDMkmOwTHEmttEDtEoEOTITmzEoREkAOlINEtTImOMmsmTTHEkoTtEOwTHEOTHERIttmEtIwImOoTTHEwAzEtOsEOTAbIbEu
 
 At this point I started to give up on number 4. I instead went back to number 3 with the hopes that it was easier since the number was lower. I knew it wasn't a simple shift cipher so I played around with it awhile and finally  figured it out if you reverse the alphabet and do a shift of 17. Here is an excerpt from a ghci session to aid me as I went: 
