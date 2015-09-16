@@ -91,33 +91,17 @@ writeTo p ls= do
 
 
 
-isSentence :: M.Map Int (HashTree Char Char) -> String -> Bool 
-isSentence _ [] = True
-isSentence m p = 
-  let pairs = map (\i -> let w = take i p in 
-                           (i,w)) [1..15]
-      icare = filter (\(i,w) -> case M.lookup i m of 
-				     Nothing -> False 
-				     Just dic -> 
-				       myelem w dic 
-				       ) pairs in 
-  if (length icare) == 0 then 
-    False 
-  else
-    or (map (\(i,w) -> isSentence m (drop i p)) icare)
-		     
- 
-
 str3 = encrypt "pbeguuymiqicuufguuyiqguuyqcuivfiqguuyqcuqbemevp" "A" 
 str3lower = "pbeguuymiqicuufguuyiqguuyqcuivfiqguuyqcuqbemevp"
 str5 = encrypt "ejitpspawaqlejitaiulrtwllrflrllaoatwsqqjatgackthlsiraoatwlplqjatwjufrhlhutsqataqitatsaittkstqfjcae" "A" 
 
+{-
 f1 = (\a -> map (encrypt a) [[x] | x <-['A'..'Z']])
 f2 = (\a -> map (encrypt a) [[x,y] | x <-['A'..'Z'], y <- ['A'..'Z']])
 f3 = (\a -> map (encrypt a) [[x,y,z] | x <-['A'..'Z'], y <- ['A'..'Z'], z <- ['A'..'Z']])
 f4 = (\a -> map (encrypt a) [[x,y,z,w] | x <-['A'..'Z'], y <- ['A'..'Z'], z <- ['A'..'Z'], w <- ['A'..'Z']])
 f5 = (\a -> map (encrypt a) [[x,y,z,w,p] | x <-['A'..'Z'], y <- ['A'..'Z'], z <- ['A'..'Z'], w <- ['A'..'Z'], p <- ['A'..'Z']]) --this is too big and dies. 
-
+-}
 
 --jrgdgidxgqanngzgtgttsitgjranmnoeddiomnwjrajvksexjmdxkmnwjrgmttgdtgognjajmzgov
 mappings = [

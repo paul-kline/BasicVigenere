@@ -4,10 +4,12 @@ import BasicVigenere
 import Criterion.Main 
 import Text.Read 
 import Data.List
+import Utils
 main = do 
   putStrLn " What would you like to do?"
   putStrLn "\t1. Run all benchmarks (assuming cmd arg: \"--output OUTPUT.html\")"
-  putStrLn "\t2. Decrypt"
+  putStrLn "\t2. Decrypt by specifying key length and first word length (can be ranges) "
+  putStrLn "\t3. Decrypt by brute forcing all keys of length <=4 checking for decryptions to real sentences"
  
   resp <- getLine
   case resp of 
@@ -69,3 +71,23 @@ main = do
 		    mods = map (\(k,w) -> f k w) allPoss 
 		sequence mods 
 		return ()
+       "3" -> do 
+          putStrLn "Enter the CypherText:"
+          c <- getLine
+          d <- getHugeDicTree 
+          putStrLn "working..." 
+          sequence $ map print $ filter ((isSentence d) . fst) (f1 c)
+          putStrLn "END of keylength=1 search~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"
+          sequence $ map print $ filter ((isSentence d). fst) (f2 c)
+          putStrLn "END of keylength=2 search~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"
+          sequence $ map print $ filter ((isSentence d). fst) (f3 c)
+          putStrLn "END of keylength=3 search~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"
+          sequence $ map print $ filter ((isSentence d). fst) (f4 c)
+          putStrLn "END of keylength=4 search~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~" 
+         
+f1 = (\a -> map (\k -> ((encrypt a k),k)) [[x] | x <-['A'..'Z']])
+f2 = (\a -> map (\k -> ((encrypt a k),k)) [[x,y] | x <-['A'..'Z'], y <- ['A'..'Z']])
+f3 = (\a -> map (\k -> ((encrypt a k),k)) [[x,y,z] | x <-['A'..'Z'], y <- ['A'..'Z'], z <- ['A'..'Z']])
+f4 = (\a -> map (\k -> ((encrypt a k),k)) [[x,y,z,w] | x <-['A'..'Z'], y <- ['A'..'Z'], z <- ['A'..'Z'], w <- ['A'..'Z']])
+f5 = (\a -> map (\k -> ((encrypt a k),k)) [[x,y,z,w,p] | x <-['A'..'Z'], y <- ['A'..'Z'], z <- ['A'..'Z'], w <- ['A'..'Z'], p <- ['A'..'Z']]) --this is too big and dies. 
+         

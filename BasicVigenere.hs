@@ -9,6 +9,9 @@ import qualified GHC.Conc as C
 --import qualified Data.HashSet as HS 
 import qualified Data.HashMap as HM
 import Data.Hashable (Hashable)
+import qualified Data.Map.Lazy as M
+
+
 type CypherText = String
 type Key = String 
 type PlainText = String 
@@ -165,6 +168,31 @@ crackOpt1_helper (c:c') d (k:k') i =do
     Nothing    -> return $ Left i  
     Just hashT -> crackOpt1_helper c' hashT (k' ++ [k]) (i + 1)
 
+    
+    
+    
+    
+    
+    
+
+isSentence :: M.Map Int (HashTree Char Char) -> String -> Bool 
+isSentence _ [] = True
+isSentence m p = 
+  let pairs = map (\i -> let w = take i p in 
+                           (i,w)) [1..15]
+      icare = filter (\(i,w) -> case M.lookup i m of 
+                                     Nothing -> False 
+                                     Just dic -> 
+                                       myelem w dic 
+                                       ) pairs in 
+  if (length icare) == 0 then 
+    False 
+  else
+    or (map (\(i,w) -> isSentence m (drop i p)) icare)
+                     
+ 
+
+ 
 (p1,k1,c1) = ("MSOKKJCOSXOEEKDTOSLGFWCMCHSUSGX", 2, 6)     :: (String, Int,Int)
 (p2,k2,c2) = ("OOPCULNWFRCFQAQJGPNARMEYUODYOUNRGWORQEPVARCEPBBSCEQYEARAJUYGWWYACYWBPRNEJBMDTEAEYCCFJNENSGWAQRTSJTGXNRQRMDGFEEPHSJRGFCFMACCB", 3, 7) :: (String, Int,Int)
 (p3,k3,c3) = ("MTZHZEOQKASVBDOWMWMKMNYIIHVWPEXJA",4,10) :: (String, Int,Int)
